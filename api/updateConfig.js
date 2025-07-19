@@ -1,4 +1,4 @@
-export async function GET() {
+export default function handler(req, res) {
   const config = {
     ANTILINK: true,
     ANTIVIRTEX: false,
@@ -7,10 +7,5 @@ export async function GET() {
     WELCOME: false
   };
 
-  return new Response(JSON.stringify(config), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  res.status(200).json(config);
 }
