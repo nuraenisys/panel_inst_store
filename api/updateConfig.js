@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   const OWNER = process.env.OWNER_NAME;
   const REPO = process.env.REPO_NAME;
-  const FILE_PATH = "config.json"; // file config di repo bot kamu
+  const FILE_PATH = "config.json"; 
 
   if (!GITHUB_TOKEN || !OWNER || !REPO) {
     return res.status(500).json({ error: "Environment variables not set" });
