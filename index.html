@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Bot WhatsApp</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: white; padding: 20px; }
+    .feature { margin-bottom: 10px; }
+    .on { color: #0f0; }
+    .off { color: #999; }
+  </style>
+</head>
+<body>
+  <h1>Panel Bot WhatsApp (.menu)</h1>
+  <div id="features"></div>
+  <script>
+    fetch('/api/updateConfig')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('features');
+        for (const [key, value] of Object.entries(data)) {
+          const div = document.createElement('div');
+          div.className = 'feature';
+          div.innerHTML = `[${value ? '🔴' : '⚪️'}] ${key.toUpperCase()}`;
+          container.appendChild(div);
+        }
+      });
+  </script>
+</body>
+</html>
